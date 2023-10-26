@@ -26,7 +26,7 @@ const App = () => {
   return (
     <div>
       <div className="heading">
-        <h2> Not have account? <br></br>Register Now</h2>
+        <h2> Not have account?<br></br>Register Now</h2>
       </div>
       <form onSubmit={handleSubmit}>
         <input className="input" type="text" placeholder="Enter Name" value={userName} onChange={(e) => setuserName(e.target.value)} />
