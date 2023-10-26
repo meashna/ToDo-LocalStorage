@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 
 const App = () => {
-
+  const[submitted,setSubmitted]=useState(false);
   const[userName , setuserName]=useState("");
   const[userMail , setuserMail]=useState("");
   const[userPassword , setuserPassword]=useState("");
@@ -20,6 +20,7 @@ const App = () => {
     }
     console.log(data);
     localStorage.setItem("data" , JSON.stringify(data));
+    setSubmitted(true);
   }
 
 
@@ -35,8 +36,8 @@ const App = () => {
         <button className="submit" type="submit">
           Signup
         </button>
-       
       </form>
+      {submitted && <div className="submitted">Form submitted successfully!</div>}
     </div>
   );
 };
