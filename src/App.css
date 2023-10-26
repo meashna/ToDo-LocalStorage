@@ -1,0 +1,29 @@
+
+.heading{
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+form{
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+button{
+  width: 12rem;
+  height: 3rem;
+  margin: 1rem;
+}
