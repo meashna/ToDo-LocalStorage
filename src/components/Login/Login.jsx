@@ -1,11 +1,13 @@
 import React, { useState, useEffect} from "react";
 // import { Redirect } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const Login = () => {
   const [userMail, setUserMail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
@@ -22,7 +24,7 @@ const Login = () => {
     if (user) {
       console.log(users);
       alert("Login successful");
-      window.location.href = "/todo";
+      navigate('/todo');
     } else {
       alert("Login failed");
     }
