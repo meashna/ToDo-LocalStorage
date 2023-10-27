@@ -66,7 +66,7 @@ const Register = () => {
       </form>
 
       {submitted && (
-        <div className="submitted">Form submitted successfully!</div>
+        <div className="submitted">Form submitted successfully!Now Login.</div>
       )}
 
       {/* <div className="user-list">
