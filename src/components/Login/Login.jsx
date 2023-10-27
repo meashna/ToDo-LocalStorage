@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
+// import { Redirect } from 'react-router-dom';
+
 
 const Login = () => {
   const [userMail, setUserMail] = useState("");
@@ -19,6 +21,7 @@ const Login = () => {
 
     if (user) {
       console.log(users);
+      alert("Login successful");
       window.location.href = "/todo";
     } else {
       alert("Login failed");
