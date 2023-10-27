@@ -23,7 +23,6 @@ const Login = () => {
 
     if (user) {
       console.log(users);
-      alert("Login successful");
       navigate('/todo');
     } else {
       alert("Login failed");
