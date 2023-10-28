@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Register.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
+// import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -8,6 +9,8 @@ const Register = () => {
   const [userMail, setuserMail] = useState("");
   const [userPassword, setuserPassword] = useState("");
   const [users, setUsers] = useState([]);
+  const [error , setError]=useState("");
+  const navigate=useNavigate();
 
 
   useEffect(() => {
@@ -27,7 +30,15 @@ const Register = () => {
     console.log(users);
     console.log(newUser);
     localStorage.setItem("users", JSON.stringify([...users, newUser]));
-    setSubmitted(true);
+    if(userName&&userMail&&userPassword){
+      setSubmitted(true);
+      navigate('/todo');
+    }
+    else {
+      //setSubmitted(false);
+      setError("Please fill all the fields");
+      console.log(setError);
+    }
   };
 
   return (
@@ -64,10 +75,11 @@ const Register = () => {
           Signup
         </button>
       </form>
+      <p style={{textAlign:"center",color:"red"}} >{error}</p>
 
-      {submitted && (
+      {/* {submitted && (
         <div className="submitted">Form submitted successfully!Now Login.</div>
-      )}
+      )} */}
 
       {/* <div className="user-list">
         <h3>User List:</h3>

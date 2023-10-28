@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 // import { Redirect } from 'react-router-dom';
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 const Login = () => {
@@ -8,10 +8,12 @@ const Login = () => {
   const [userPassword, setUserPassword] = useState("");
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
+  const[error,setError]=useState("");
 
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
     setUsers(storedUsers);
+    console.log(storedUsers);
   }, []);
 
   const handleLogin = (e) => {
@@ -21,11 +23,12 @@ const Login = () => {
       (u) => u.userMail === userMail && u.userPassword === userPassword
     );
 
-    if (user) {
+    if (user&&userMail&&userPassword){
       console.log(users);
       navigate('/todo');
     } else {
-      alert("Login failed");
+      //alert("Login failed");
+      setError("Invalid credentials");
     }
   };
 
@@ -48,6 +51,7 @@ const Login = () => {
           onChange={(e) => setUserPassword(e.target.value)}
         />
         <button>Login</button>
+        <p style={{ color: "red" , textAlign:"center"}}>{error}</p>
       </form>
     </div>
   );
