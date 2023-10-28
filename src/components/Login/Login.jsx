@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 // import { Redirect } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import Register from "../Register/Register";
 
 
 const Login = () => {
@@ -51,6 +52,7 @@ const Login = () => {
           onChange={(e) => setUserPassword(e.target.value)}
         />
         <button>Login</button>
+        <p style={{ textAlign:"center"}}>Didn't have an account? <Link to='/register'>Register</Link></p>
         <p style={{ color: "red" , textAlign:"center"}}>{error}</p>
       </form>
     </div>
