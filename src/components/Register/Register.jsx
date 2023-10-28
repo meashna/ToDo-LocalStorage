@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Register.css";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
@@ -9,13 +9,12 @@ const Register = () => {
   const [userMail, setuserMail] = useState("");
   const [userPassword, setuserPassword] = useState("");
   const [users, setUsers] = useState([]);
-  const [error , setError]=useState("");
-  const navigate=useNavigate();
-
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
-    console.log(storedUsers)
+    console.log(storedUsers);
     setUsers(storedUsers);
   }, []);
 
@@ -26,16 +25,24 @@ const Register = () => {
       userMail,
       userPassword,
     };
+
     setUsers([...users, newUser]);
+
     console.log(users);
     console.log(newUser);
+
     localStorage.setItem("users", JSON.stringify([...users, newUser]));
-    if(userName&&userMail&&userPassword){
-      setSubmitted(true);
-      navigate('/todo');
-    }
-    else {
-      //setSubmitted(false);
+
+    if (userName && userMail && userPassword) {
+      const emailExists = users.some((user) => user.userMail === userMail);
+      if (emailExists) {
+        setError("Email already exists");
+        setSubmitted(false);
+      } else {
+        setSubmitted(true);
+        navigate("/todo");
+      }
+    } else {
       setError("Please fill all the fields");
       console.log(setError);
     }
@@ -75,7 +82,7 @@ const Register = () => {
           Signup
         </button>
       </form>
-      <p style={{textAlign:"center",color:"red"}} >{error}</p>
+      <p style={{ textAlign: "center", color: "red" }}>{error}</p>
 
       {/* {submitted && (
         <div className="submitted">Form submitted successfully!Now Login.</div>
