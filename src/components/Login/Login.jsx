@@ -14,7 +14,6 @@ const Login = () => {
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
     setUsers(storedUsers);
-    console.log(storedUsers);
   }, []);
 
   const handleLogin = (e) => {
@@ -25,7 +24,8 @@ const Login = () => {
     );
 
     if (user&&userMail&&userPassword){
-      console.log(users);
+      console.log(user);
+      localStorage.setItem("currentUser", JSON.stringify(user));
       navigate('/todo');
     } else {
       //alert("Login failed");

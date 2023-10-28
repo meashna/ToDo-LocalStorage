@@ -14,7 +14,6 @@ const Register = () => {
 
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
-    console.log(storedUsers);
     setUsers(storedUsers);
   }, []);
 
@@ -40,6 +39,7 @@ const Register = () => {
         setSubmitted(false);
       } else {
         setSubmitted(true);
+        localStorage.setItem("currentUser", JSON.stringify(userName));
         navigate("/todo");
       }
     } else {

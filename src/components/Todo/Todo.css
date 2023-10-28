@@ -1,3 +1,49 @@
 .todo{
     text-align: center;
 }
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.todo-heading{
+    text-align: center;
+}
+
+.todo-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.add{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+.btn-logout{
+    width: max-content;
+    height: 1.5rem;
+}
+
+.tasks{
+    width: 300px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; */
+    margin: 0 auto;
+}
+
+.tasks-box{
+    border: 1px solid rgb(102, 102, 102);
+    margin: 0.2rem;
+    height: 2rem;
+    text-align: center;
+    align-items: center;
+    padding-top: 0.7rem;
+}
