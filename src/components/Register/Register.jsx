@@ -39,8 +39,8 @@ const Register = () => {
         setSubmitted(false);
       } else {
         setSubmitted(true);
-        localStorage.setItem("currentUser", JSON.stringify(userName));
-        navigate("/todo");
+        //localStorage.setItem("currentUser", JSON.stringify(users));
+        navigate("/todo"); 
       }
     } else {
       setError("Please fill all the fields");

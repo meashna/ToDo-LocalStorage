@@ -7,12 +7,17 @@ const Todo = () => {
   const logout = () => {
     navigate("/register");
   };
-
   const [userInput, setuserInput] = useState("");
   const [tasks, setTasks] = useState([]);
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")); 
+  const userName=currentUser.userName;
+  console.log(currentUser);
 
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+    setTasks(storedTasks);
+  }, []);
   const addTask = () => {
     const newTask = {
       currentUserMail: currentUser.userMail,
@@ -24,20 +29,14 @@ const Todo = () => {
     setuserInput("");
   };
 
-  useEffect(()=>{
-    const storedTasks=JSON.parse(localStorage.getItem("tasks") || "[]");
-    setTasks(storedTasks);
-  },[]);
-  // useEffect(() => {
-  //   console.log(tasks); 
-  // }, [tasks]);
-
   return (
     <div>
       <div className="todo">
         <nav>
-          <h3>Welcome {currentUser.userName}</h3>
-          <button className="btn-logout" onClick={logout}>Logout</button>
+          <h3>Welcome {userName}</h3>
+          <button className="btn-logout" onClick={logout}>
+            Logout
+          </button>
         </nav>
 
         <div className="todo-heading">
@@ -52,14 +51,19 @@ const Todo = () => {
             value={userInput}
             onChange={(e) => {
               setuserInput(e.target.value);
+              //dbt - e console chythl value kittmo??
             }}
           />
-          <button className="add" onClick={addTask}>+</button>
+          <button className="add" onClick={addTask}>
+            +
+          </button>
         </div>
 
         <div className="tasks">
-          {tasks.map((task,index)=>(
-            <div className="tasks-box" key={index}>{task.userInput}</div>
+          {tasks.map((task, index) => (
+            <div className="tasks-box" key={index}>
+              {task.userInput}
+            </div>
           ))}
         </div>
       </div>
