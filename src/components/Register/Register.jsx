@@ -27,8 +27,8 @@ const Register = () => {
 
     setUsers([...users, newUser]);
 
-    console.log(users);
-    console.log(newUser);
+    // console.log(users);
+    // console.log(newUser);
 
     localStorage.setItem("users", JSON.stringify([...users, newUser]));
 
@@ -39,7 +39,7 @@ const Register = () => {
         setSubmitted(false);
       } else {
         setSubmitted(true);
-        //localStorage.setItem("currentUser", JSON.stringify(users));
+        localStorage.setItem("currentUser", JSON.stringify(newUser));
         navigate("/todo"); 
       }
     } else {
