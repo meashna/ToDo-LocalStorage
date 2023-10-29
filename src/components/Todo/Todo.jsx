@@ -11,23 +11,26 @@ const Todo = () => {
   const [tasks, setTasks] = useState([]);
   const currentUser = JSON.parse(localStorage.getItem("currentUser")); 
   const userName=currentUser.userName;
-  console.log(currentUser);
-
+  //console.log(currentUser + "intial current user of todo");
 
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
     setTasks(storedTasks);
   }, []);
+
   const addTask = () => {
     const newTask = {
       currentUserMail: currentUser.userMail,
       userInput,
     };
     setTasks([...tasks, newTask]);
-    console.log(tasks);
+    console.log(tasks );
+    console.log(newTask );
     localStorage.setItem("tasks", JSON.stringify([...tasks, newTask]));
     setuserInput("");
   };
+
+
 
   return (
     <div>

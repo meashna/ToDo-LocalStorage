@@ -27,10 +27,12 @@ const Register = () => {
 
     setUsers([...users, newUser]);
 
-    // console.log(users);
-    // console.log(newUser);
+    console.log(users + "this is users");
+    console.log(newUser + "this is newUser");
 
     localStorage.setItem("users", JSON.stringify([...users, newUser]));
+
+    console.log("users array setted")
 
     if (userName && userMail && userPassword) {
       const emailExists = users.some((user) => user.userMail === userMail);
@@ -38,8 +40,9 @@ const Register = () => {
         setError("Email already exists");
         setSubmitted(false);
       } else {
-        setSubmitted(true);
+        //setSubmitted(true);
         localStorage.setItem("currentUser", JSON.stringify(newUser));
+        setSubmitted(true);
         navigate("/todo"); 
       }
     } else {
