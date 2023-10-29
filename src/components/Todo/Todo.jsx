@@ -9,28 +9,36 @@ const Todo = () => {
   };
   const [userInput, setuserInput] = useState("");
   const [tasks, setTasks] = useState([]);
-  const currentUser = JSON.parse(localStorage.getItem("currentUser")); 
-  const userName=currentUser.userName;
-  //console.log(currentUser + "intial current user of todo");
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const userName = currentUser.userName;
+  const userTasks=tasks.filter((task)=>task.currentUserMail===currentUser.userMail);
+  
 
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
     setTasks(storedTasks);
-  }, []);
+  }, [currentUser.userMail]); // Only trigger when currentUser.userMail changes
+
+
 
   const addTask = () => {
     const newTask = {
       currentUserMail: currentUser.userMail,
       userInput,
     };
-    setTasks([...tasks, newTask]);
-    console.log(tasks );
-    console.log(newTask );
-    localStorage.setItem("tasks", JSON.stringify([...tasks, newTask]));
+
+    
+    const updatedTask=([...tasks, newTask]);
+    setTasks(updatedTask);
+    //[task1]
+    console.log(newTask);
+
+    
+    localStorage.setItem("tasks", JSON.stringify(updatedTask));
+    console.log(tasks)
     setuserInput("");
+
   };
-
-
 
   return (
     <div>
@@ -54,7 +62,6 @@ const Todo = () => {
             value={userInput}
             onChange={(e) => {
               setuserInput(e.target.value);
-              //dbt - e console chythl value kittmo??
             }}
           />
           <button className="add" onClick={addTask}>
@@ -63,7 +70,7 @@ const Todo = () => {
         </div>
 
         <div className="tasks">
-          {tasks.map((task, index) => (
+          {userTasks.map((task, index) => (
             <div className="tasks-box" key={index}>
               {task.userInput}
             </div>
