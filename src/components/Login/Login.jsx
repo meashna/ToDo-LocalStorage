@@ -25,10 +25,15 @@ const Login = () => {
 
     if (user&&userMail&&userPassword){
       console.log(user);
-      localStorage.setItem("currentUser", JSON.stringify(user));
-      navigate('/todo');
+      // localStorage.setItem("currentUser", JSON.stringify(user));
+      if(user){
+        localStorage.setItem("currentUser", JSON.stringify(user));
+        navigate("/protected/todo");
+        localStorage.setItem('isLoggedIn', 'true');
+      }else{
+        navigate("/register");
+      }
     } else {
-      //alert("Login failed");
       setError("Invalid credentials");
     }
   };

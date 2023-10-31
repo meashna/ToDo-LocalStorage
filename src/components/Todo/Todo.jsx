@@ -3,6 +3,8 @@ import "./Todo.css";
 import { useNavigate } from "react-router-dom";
 
 const Todo = () => {
+
+
   const navigate = useNavigate();
   const logout = () => {
     navigate("/register");
@@ -11,15 +13,17 @@ const Todo = () => {
   const [tasks, setTasks] = useState([]);
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const userName = currentUser.userName;
-  const userTasks=tasks.filter((task)=>task.currentUserMail===currentUser.userMail);
+  const userTasks = tasks.filter(
+    (task) => task.currentUserMail === currentUser.userMail
+  );
+
   
+ 
 
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
     setTasks(storedTasks);
   }, [currentUser.userMail]); // Only trigger when currentUser.userMail changes
-
-
 
   const addTask = () => {
     const newTask = {
@@ -27,17 +31,14 @@ const Todo = () => {
       userInput,
     };
 
-    
-    const updatedTask=([...tasks, newTask]);
+    const updatedTask = [...tasks, newTask];
     setTasks(updatedTask);
     //[task1]
     console.log(newTask);
 
-    
     localStorage.setItem("tasks", JSON.stringify(updatedTask));
-    console.log(tasks)
+    console.log(tasks);
     setuserInput("");
-
   };
 
   return (

@@ -42,8 +42,13 @@ const Register = () => {
       } else {
         //setSubmitted(true);
         localStorage.setItem("currentUser", JSON.stringify(newUser));
+        if(!currentUser){
+          //localStorage.setItem('isLoggedIn','false')
+          navigate("/register"); 
+        }
         setSubmitted(true);
-        navigate("/todo"); 
+        // localStorage.setItem('isLoggedIn','true')
+        navigate("/protected/todo"); 
       }
     } else {
       setError("Please fill all the fields");
