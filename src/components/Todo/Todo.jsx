@@ -3,10 +3,9 @@ import "./Todo.css";
 import { useNavigate } from "react-router-dom";
 
 const Todo = () => {
-
-
   const navigate = useNavigate();
   const logout = () => {
+    localStorage.removeItem("isLoggedIn");
     navigate("/register");
   };
   const [userInput, setuserInput] = useState("");
@@ -16,9 +15,6 @@ const Todo = () => {
   const userTasks = tasks.filter(
     (task) => task.currentUserMail === currentUser.userMail
   );
-
-  
- 
 
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
