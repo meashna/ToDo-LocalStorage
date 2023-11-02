@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Todo.css";
 import { useNavigate } from "react-router-dom";
+import { FaTrash } from "react-icons/fa";
 
 const Todo = () => {
   const navigate = useNavigate();
@@ -37,6 +38,17 @@ const Todo = () => {
     setuserInput("");
   };
 
+  // const deleteTask=()=>{
+  //   console.log("task deleetd")
+  // }
+
+  const deleteTask = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks.splice(index, 1);
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  };
+
   return (
     <div>
       <div className="todo">
@@ -70,6 +82,9 @@ const Todo = () => {
           {userTasks.map((task, index) => (
             <div className="tasks-box" key={index}>
               {task.userInput}
+              <div className="delete">
+                <FaTrash onClick={() => deleteTask(index)} />
+              </div>
             </div>
           ))}
         </div>
