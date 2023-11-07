@@ -54,5 +54,18 @@ nav{
 }
 
 
-
+/* In your Todo.css file or your CSS styles */
+.dateview {
+    width: 1.5rem;
+    height: 1rem;
+    border-radius: 0.5rem;
+  }
   
+  @media only screen and (max-width: 767px) {
+    .dateview {
+        width: 40px;
+        height: 15px;
+        border-radius: 8px;
+    }
+
+}
