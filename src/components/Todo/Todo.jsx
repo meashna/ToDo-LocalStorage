@@ -16,6 +16,9 @@ const Todo = () => {
   const userTasks = tasks.filter(
     (task) => task.currentUserMail === currentUser.userMail
   );
+   const [date, setDate] = useState(new Date());
+  
+
 
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
@@ -26,6 +29,7 @@ const Todo = () => {
     const newTask = {
       currentUserMail: currentUser.userMail,
       userInput,
+      date: date, // Include the specific date for the task
     };
 
     const updatedTask = [...tasks, newTask];
@@ -48,6 +52,13 @@ const Todo = () => {
     setTasks(updatedTasks);
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
+
+  
+    const handleDateChange = (e) => {
+      // Update the date state with the new value
+      setDate(e.target.value);
+    };
+  
 
   return (
     <div>
@@ -73,6 +84,7 @@ const Todo = () => {
               setuserInput(e.target.value);
             }}
           />
+          <input type="date" className="dateview" value={date} onChange={handleDateChange} /> 
           <button className="add" onClick={addTask}>
             +
           </button>
@@ -82,6 +94,7 @@ const Todo = () => {
           {userTasks.map((task, index) => (
             <div className="tasks-box" key={index}>
               {task.userInput}
+              <div >{task.date}</div> {/* Display the specific date for each task */}
               <div className="delete">
                 <FaTrash onClick={() => deleteTask(index)} />
               </div>

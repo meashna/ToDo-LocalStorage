@@ -52,3 +52,12 @@ nav{
     padding: 0.5rem;
 
 }
+
+
+/* In your Todo.css file or your CSS styles */
+.dateview {
+    width: 1.5rem;
+    height: 1rem;
+    border-radius: 0.5rem;
+  }
+  
