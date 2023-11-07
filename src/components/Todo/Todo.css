@@ -1,36 +1,36 @@
-.todo{
+.todo {
     text-align: center;
 }
 
-nav{
+nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.todo-heading{
+.todo-heading {
     text-align: center;
 }
 
-.todo-form{
+.todo-form {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
 }
 
-.add{
+.add {
     width: 1.5rem;
     height: 1.5rem;
 }
 
 
-.btn-logout{
+.btn-logout {
     width: max-content;
     height: 1.5rem;
 }
 
-.tasks{
+.tasks {
     width: 300px;
     /* display: flex;
     align-items: center;
@@ -39,7 +39,7 @@ nav{
     margin: 0 auto;
 }
 
-.tasks-box{
+.tasks-box {
     border: 1px solid rgb(102, 102, 102);
     margin: 0.2rem;
     height: 2rem;
@@ -54,18 +54,3 @@ nav{
 }
 
 
-/* In your Todo.css file or your CSS styles */
-.dateview {
-    width: 1.5rem;
-    height: 1rem;
-    border-radius: 0.5rem;
-  }
-  
-  @media only screen and (max-width: 767px) {
-    .dateview {
-        width: 40px;
-        height: 15px;
-        border-radius: 8px;
-    }
-
-}
