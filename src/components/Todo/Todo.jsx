@@ -16,9 +16,17 @@ const Todo = () => {
   const userTasks = tasks.filter(
     (task) => task.currentUserMail === currentUser.userMail
   );
-   const [date, setDate] = useState(new Date());
-  
+  const [date, setDate] = useState(new Date());
 
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks[index].isChecked = !updatedTasks[index].isChecked;
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  };
+  
 
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
@@ -29,7 +37,8 @@ const Todo = () => {
     const newTask = {
       currentUserMail: currentUser.userMail,
       userInput,
-      date: date, // Include the specific date for the task
+      date: date,
+      isChecked:false, // Include the specific date for the task
     };
 
     const updatedTask = [...tasks, newTask];
@@ -40,6 +49,7 @@ const Todo = () => {
     localStorage.setItem("tasks", JSON.stringify(updatedTask));
     console.log(tasks);
     setuserInput("");
+    setDate(new Date());
   };
 
   // const deleteTask=()=>{
@@ -53,12 +63,10 @@ const Todo = () => {
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
 
-  
-    const handleDateChange = (e) => {
-      // Update the date state with the new value
-      setDate(e.target.value);
-    };
-  
+  const handleDateChange = (e) => {
+    // Update the date state with the new value
+    setDate(e.target.value);
+  };
 
   return (
     <div>
@@ -84,17 +92,33 @@ const Todo = () => {
               setuserInput(e.target.value);
             }}
           />
-          <input type="date" className="dateview" value={date} onChange={handleDateChange} /> 
+          <input
+            type="date"
+            className="dateview"
+            value={date}
+            onChange={handleDateChange}
+          />
           <button className="add" onClick={addTask}>
             +
           </button>
         </div>
 
-        <div className="tasks">
+        <div
+          className="tasks"
+        >
           {userTasks.map((task, index) => (
-            <div className="tasks-box" key={index}>
+            <div className="tasks-box" key={index} style={{
+              textDecoration: task.isChecked ? 'line-through' : 'none',
+              opacity: task.isChecked ? 0.5 : 1,
+            }}>
+              <input
+                type="checkbox"
+                checked={task.isChecked}
+                onChange={() => handleCheckboxChange(index)}
+              />
               {task.userInput}
-              <div >{task.date}</div> {/* Display the specific date for each task */}
+              <div>{task.date}</div>
+              {/* Display the specific date for each task */}
               <div className="delete">
                 <FaTrash onClick={() => deleteTask(index)} />
               </div>
