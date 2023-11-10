@@ -32,11 +32,12 @@ nav {
 
 .tasks {
     width: 300px;
-    /* display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column; */
+    flex-direction: column;
     margin: 0 auto;
+
 }
 
 .tasks-box {
@@ -50,7 +51,44 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem;
-
+    width: 500px;
 }
 
 
+@media only screen and (max-width: 767px) {
+    .tasks-box {
+        padding: 0.5rem;
+        width: 350px;
+    }
+
+    .facheck {
+        padding: 10px;
+    }
+}
+
+.task-box {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.taskeditinput {
+    display: flex;
+
+
+}
+
+.facheck {
+    margin: 0 auto;
+    padding-top: 15px;
+}
+
+.editdlt {
+    display: flex;
+    align-items: center;
+}
+
+.edit , .delete {
+    padding: .3rem;
+}

@@ -34,7 +34,7 @@ const App = () => {
         <Route path="/protected" element={<ProtectedLayout />}>
           <Route path="todo" element={<Todo />} />
         </Route>
-        {/* <Route path="/todo" element={<Todo />} /> */}
+        <Route path="/todo" element={<Todo />} />
       </Routes>
     </BrowserRouter>
   );
