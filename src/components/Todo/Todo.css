@@ -59,6 +59,8 @@ nav {
     .tasks-box {
         padding: 0.5rem;
         width: 350px;
+        border-left: none;
+        border-right: none;
     }
 
     .facheck {
