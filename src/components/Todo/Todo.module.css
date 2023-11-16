@@ -1,6 +1,6 @@
 .bg {
     position: fixed;
-    height: 40vh;
+    height: 60vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -288,6 +288,12 @@ input[type=checkbox]:focus {
         height: 0.9rem;
         border-radius: 0.5rem;
     
+    }
+
+    .bg {
+    
+        height: 40vh;
+      
     }
 
 }
