@@ -58,18 +58,19 @@ nav {
     height: max-content;
     margin-bottom: 40px;
     background-color: white;
+    height: 3rem;
 }
 
 .addtodoinput {
-    height: 17px;
+   
     width: 300px;
     border-radius: 0.5rem;
     margin-left: 1.5rem;
 }
 
 .dateview {
-    width: 0.9rem;
-    height: 0.9rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 0.5rem;
 
 }
@@ -280,6 +281,13 @@ input[type=checkbox]:focus {
         justify-content: space-between;
         background-color: white;
         width: 380px;
+    }
+
+    .dateview {
+        width: 0.9rem;
+        height: 0.9rem;
+        border-radius: 0.5rem;
+    
     }
 
 }
