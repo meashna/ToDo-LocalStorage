@@ -9,13 +9,17 @@
 }
 
 nav {
-    padding: 1rem;
+
+    padding: 2rem;
     color: white;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     position: sticky;
     top: 0;
+    width: 100%;
+
 }
 
 .btnlogout {
@@ -64,8 +68,8 @@ nav {
 }
 
 .dateview {
-   width: 0.9rem;
-   height: 0.9rem;
+    width: 0.9rem;
+    height: 0.9rem;
     border-radius: 0.5rem;
 
 }
@@ -173,14 +177,109 @@ input[type=checkbox]:focus {
 }
 
 @media only screen and (max-width: 767px) {
-    .tasksbox {
-        padding: 0.5rem;
-        width: 350px;
-        border-left: none;
-        border-right: none;
+
+
+    nav {
+        padding-top: 1rem;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        width: 100%;
     }
 
-    .facheck {
-        padding: 10px;
+    .btnlogout {
+        width: 6rem;
+        height: 3rem;
+        background: rgb(255, 255, 255);
+        color: #3A7BFD;
+        border: none;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+
     }
+
+    .btnlogout {
+        opacity: 0.9;
+        transform: scale(1.05);
+    }
+
+
+    .todoheading {
+        text-align: center;
+        color: white;
+        margin: 1rem;
+
+    }
+
+    .todoform {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        margin: 0 auto;
+        width: 380px;
+        border: 1px solid rgb(102, 102, 102);
+        height: 3rem;
+        margin-bottom: 40px;
+        background-color: white;
+        padding: 0.5rem;
+    }
+
+    .addtodoinput {
+        height: 2rem;
+        width: 250px;
+        border-radius: 0.5rem;
+        margin-left: 1.5rem;
+    }
+
+    .dateview {
+        border-radius: 0.5rem;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .add {
+        width: 7rem;
+        height: 35px;
+        margin-right: 3px;
+        color: white;
+        background: linear-gradient(to left,
+                hsl(192, 100%, 67%),
+                hsl(280, 87%, 65%));
+
+        border: none;
+        border-radius: 0.5rem;
+    }
+
+
+    .tasks {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 380px;
+    }
+
+    .tasksbox {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid rgb(102, 102, 102);
+        border-bottom: 1px solid rgb(102, 102, 102);
+        height: 3rem;
+        text-align: center;
+        align-items: center;
+        padding-top: 0.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        width: 380px;
+    }
+
 }
