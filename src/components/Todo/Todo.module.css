@@ -1,0 +1,186 @@
+.bg {
+    position: fixed;
+    height: 40vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -100;
+}
+
+nav {
+    padding: 1rem;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+}
+
+.btnlogout {
+    width: 10rem;
+    height: 3rem;
+    background: rgb(255, 255, 255);
+    color: #3A7BFD;
+    border: none;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.btnlogout {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+
+.todoheading {
+    text-align: center;
+    color: white;
+    margin: 1rem;
+
+}
+
+.todoform {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 500px;
+    border: 1px solid rgb(102, 102, 102);
+    height: max-content;
+    margin-bottom: 40px;
+    background-color: white;
+}
+
+.addtodoinput {
+    height: 17px;
+    width: 300px;
+    border-radius: 0.5rem;
+    margin-left: 1.5rem;
+}
+
+.dateview {
+   width: 0.9rem;
+   height: 0.9rem;
+    border-radius: 0.5rem;
+
+}
+
+.add {
+    width: 100px;
+    height: 35px;
+    margin-right: 10px;
+    color: white;
+    background: linear-gradient(to left,
+            hsl(192, 100%, 67%),
+            hsl(280, 87%, 65%));
+
+    border: none;
+    border-radius: 0.5rem;
+}
+
+
+.tasks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.tasksbox {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgb(102, 102, 102);
+    border-bottom: 1px solid rgb(102, 102, 102);
+    height: 3rem;
+    text-align: center;
+    align-items: center;
+    padding-top: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    width: 500px;
+    background-color: white;
+
+}
+
+
+input[type=checkbox] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid #4a4a4a;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+
+input[type=checkbox]:checked {
+    background: linear-gradient(to left,
+            hsl(192, 100%, 67%),
+            hsl(280, 87%, 65%));
+
+}
+
+input:focus {
+    /* outline: none; */
+    transform: scale(1.05);
+}
+
+input[type=checkbox]:focus {
+    outline: none;
+    border-color: #3A7BFD;
+}
+
+/* .taskdate{
+    background-color: blue;
+    text-align: left;
+} */
+
+.taskeditinput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editdlt {
+    display: flex;
+    align-items: center;
+}
+
+.facheck {
+
+    color: #3A7BFD;
+    ;
+}
+
+.edit,
+.delete {
+    color: #3A7BFD;
+    ;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .tasksbox {
+        padding: 0.5rem;
+        width: 350px;
+        border-left: none;
+        border-right: none;
+    }
+
+    .facheck {
+        padding: 10px;
+    }
+}

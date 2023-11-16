@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Register.css";
+import styles from "./Register.module.css";
 import { Link, useNavigate } from "react-router-dom";
 // import { useNavigate } from 'react-router-dom'
 
@@ -32,7 +32,7 @@ const Register = () => {
 
     localStorage.setItem("users", JSON.stringify([...users, newUser]));
 
-    console.log("users array setted")
+    console.log("users array setted");
 
     if (userName && userMail && userPassword) {
       const emailExists = users.some((user) => user.userMail === userMail);
@@ -42,13 +42,13 @@ const Register = () => {
       } else {
         //setSubmitted(true);
         localStorage.setItem("currentUser", JSON.stringify(newUser));
-        if(!currentUser){
+        if (!currentUser) {
           //localStorage.setItem('isLoggedIn','false')
-          navigate("/register"); 
+          navigate("/register");
         }
         setSubmitted(true);
         // localStorage.setItem('isLoggedIn','true')
-        navigate("/protected/todo"); 
+        navigate("/protected/todo");
       }
     } else {
       setError("Please fill all the fields");
@@ -57,55 +57,41 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <div className="heading">
+    <div className={styles.container}>
+      <div className={styles.heading}>
         <h2>
-          {" "}
-          Not have account?<br></br>Register Now
+          Not have an account ?<br></br><br></br>Register Now
         </h2>
       </div>
       <form onSubmit={handleSubmit}>
         <input
-          className="input"
+          className={styles.input}
           type="text"
           placeholder="Enter Name"
           value={userName}
           onChange={(e) => setuserName(e.target.value)}
         />
         <input
-          className="input"
+          className={styles.input}
           type="mail"
           placeholder="Enter Email"
           value={userMail}
           onChange={(e) => setuserMail(e.target.value)}
         />
         <input
-          className="input"
+          className={styles.input}
           type="password"
           placeholder="Enter Password"
           value={userPassword}
           onChange={(e) => setuserPassword(e.target.value)}
         />
-        <button className="submit" type="submit">
+        <button className={styles.submit} type="submit">
           Signup
         </button>
       </form>
-      <p style={{ textAlign: "center", color: "red" }}>{error}</p>
+      <p style={{ textAlign: "center", color: "red" , padding:"1rem"}}>{error}</p>
 
-      {/* {submitted && (
-        <div className="submitted">Form submitted successfully!Now Login.</div>
-      )} */}
-
-      {/* <div className="user-list">
-        <h3>User List:</h3>
-        {users.map((user) => (
-          <li>
-            Name: {user.userName}, Email: {user.userMail}, Password:{" "}
-            {user.userPassword}
-          </li>
-        ))}
-      </div> */}
-      <p className="login-para">
+      <p className={styles.loginpara}>
         Already have an account? <Link to="/login">Login</Link>
       </p>
     </div>

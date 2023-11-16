@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./Todo.css";
+import styles from  "./Todo.module.css";
 import { useNavigate } from "react-router-dom";
 import { FaTrash, FaEdit, FaCheck } from "react-icons/fa";
 import { v4 as uuidv4 } from "uuid";
+import bg from '../../images/bg.jpg';
+
 
 const Todo = () => {
   const navigate = useNavigate();
@@ -88,21 +90,22 @@ const Todo = () => {
 
   return (
     <div>
-      <div className="todo">
+      <img src={bg} alt="bg" className={styles.bg} />
+      <div className={styles.todo}>
         <nav>
-          <h3>Welcome {currentUser.userName}</h3>
-          <button className="btn-logout" onClick={logout}>
+          <h1>Welcome {currentUser.userName}</h1>
+          <button className={styles.btnlogout} onClick={logout}>
             Logout
           </button>
         </nav>
 
-        <div className="todo-heading">
-          <h2>To-Do List</h2>
+        <div className={styles.todoheading}>
+          <h1>To-Do List</h1>
         </div>
 
-        <div className="todo-form">
+        <div className={styles.todoform}>
           <input
-            className="todo-input"
+            className={styles.addtodoinput}
             type="text"
             placeholder="Enter task"
             value={userInput}
@@ -110,19 +113,19 @@ const Todo = () => {
           />
           <input
             type="date"
-            className="dateview"
+            className={styles.dateview}
             value={date.toISOString().split("T")[0]}
             onChange={handleDateChange}
           />
-          <button className="add" onClick={addTask}>
-            +
+          <button className={styles.add} onClick={addTask}>
+            add task
           </button>
         </div>
 
-        <div className="tasks">
+        <div className={styles.tasks}>
           {tasks.map((task, index) => (
             <div
-              className="tasks-box"
+              className={styles.tasksbox}
               key={task.id}
               style={{
                 textDecoration: task.isChecked ? "line-through" : "none",
@@ -135,10 +138,10 @@ const Todo = () => {
                 onChange={() => handleCheckboxChange(index)}
               />
 
-              <div>{task.date}</div>
+              <div className={styles.taskdate}>{task.date}</div>
 
               {isEditing === task.id ? (
-                <div className="taskeditinput">
+                <div className={styles.taskeditinput}>
                   <input
                     type="text"
                     value={editInput}
@@ -146,17 +149,17 @@ const Todo = () => {
                   />
                   <FaCheck
                     onClick={() => handleSave(task.id)}
-                    className="facheck"
+                    className={styles.facheck}
                   />
                 </div>
               ) : (
-                <div className="task-box">{task.userInput}</div>
+                <div className={styles.taskbox}>{task.userInput}</div>
               )}
-              <div className="editdlt">
-                <div className="edit">
+              <div className={styles.editdlt}>
+                <div className={styles.edit}>
                   <FaEdit onClick={() => handleEditClick(task.id)} />
                 </div>
-                <div className="delete">
+                <div className={styles.delete}>
                   <FaTrash onClick={() => deleteTask(index)} />
                 </div>
               </div>

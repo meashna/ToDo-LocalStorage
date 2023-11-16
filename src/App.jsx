@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route ,Outlet,Navigate} from "react-router-dom";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Todo from "./components/Todo/Todo";
+import './App.css'
 
 // function isAuthenticated() {
 //   const isLoggedIn = localStorage.getItem("isLoggedIn");
