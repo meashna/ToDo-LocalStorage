@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
 .bg {
     position: fixed;
     height: 60vh;
@@ -34,10 +38,6 @@ nav {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.btnlogout {
-    opacity: 0.9;
-    transform: scale(1.05);
-}
 
 
 .todoheading {
@@ -62,7 +62,6 @@ nav {
 }
 
 .addtodoinput {
-   
     width: 300px;
     border-radius: 0.5rem;
     margin-left: 1.5rem;
@@ -179,9 +178,8 @@ input[type=checkbox]:focus {
 
 @media only screen and (max-width: 767px) {
 
-
     nav {
-        padding-top: 1rem;
+      
         color: white;
         display: flex;
         flex-direction: row;
@@ -223,7 +221,7 @@ input[type=checkbox]:focus {
         justify-content: space-around;
         flex-direction: row;
         margin: 0 auto;
-        width: 380px;
+        width: 350px;
         border: 1px solid rgb(102, 102, 102);
         height: 3.5rem;
         margin-bottom: 40px;
@@ -264,7 +262,7 @@ input[type=checkbox]:focus {
         justify-content: center;
         flex-direction: column;
         margin: 0 auto;
-        width: 380px;
+        width: 350px;
     }
 
     .tasksbox {
@@ -280,7 +278,7 @@ input[type=checkbox]:focus {
         align-items: center;
         justify-content: space-between;
         background-color: white;
-        width: 380px;
+        width: 350px;
     }
 
     .dateview {
