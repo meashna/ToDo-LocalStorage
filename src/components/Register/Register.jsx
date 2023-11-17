@@ -42,6 +42,7 @@ const Register = () => {
     localStorage.setItem("currentUser", JSON.stringify(newUser));
     setSubmitted(true);
     navigate("/protected/todo");
+    localStorage.setItem("isLoggedIn", "true");
   };
   
   return (
